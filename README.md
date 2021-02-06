@@ -144,8 +144,6 @@ Dependencies:
 npm i -D typescript
 ```
 
-
-
 ## Jest
 
 Config: [jest.config.js](jest.config.js)
@@ -201,9 +199,39 @@ Dependencies:
 npm i -D microbundle
 ```
 
+# Entry Points
+
+For libraries.
+
+```json
+{
+  "types": "./lib/index.d.ts",
+  "main": "./lib/index.js"
+}
+```
+
+For Microbundle libraries.
+
+```json
+{
+  "source": "./src/index.js",
+  "module": "./lib/index.module.js",
+  "exports": "./lib/index.modern.js",
+  "unpkg": "./lib/index.umd.js"
+}
+```
+
+For command line interfaces (CLI).
+
+```json
+{
+  "bin": "./lib/index.js"
+}
+```
+
 # Scripts
 
-Entries for the `package.json` file `scripts` object.
+Command strings for the `package.json` file `scripts` object.
 
 ## Common
 
