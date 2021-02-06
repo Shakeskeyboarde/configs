@@ -29,6 +29,36 @@ Some of my own personal preferences are reflected here:
   - **Summary:** All rights reserved.
   - **Use:** For closed source.
 
+# Commands
+
+Frequently used command strings.
+
+```bash
+# Login the GitHub CLI into your account
+gh auth login
+# Create and clone a new GitHub repo
+gh repo create --public <name>
+# Initialize package.json (can be re-run to update)
+npm init
+# Commit all changes including un-staged files.
+git commit -Am "message"
+# Rewrite the last commit (requires a force push if already pushed)
+git commit -A --amend
+# Remove all git ignored files (build output)
+git clean -fdX
+# Hard reset everything back to the last commit
+git clean -fdx
+# Hard reset only tracked files back to the last commit
+git reset --hard
+# Push all local changes to the Git origin remote
+git push
+# Pull all remote changes to from the Git origin
+git pull
+# Pull and auto-resolve all conflicts in favor of the remote
+# (overwrite the local conflict and keep the remote's version).
+git pull -X theirs
+```
+
 # Tools
 
 Config files and dependencies for build tools.
