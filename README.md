@@ -40,6 +40,8 @@ gh auth login
 gh repo create --public "name"
 # Initialize package.json (can be re-run to update)
 npm init
+# Track all un-tracked files.
+git add .
 # Commit all changed files (doesn't include un-tracked)
 git commit -am "message"
 # Rewrite the last commit (requires a force push if already pushed)
