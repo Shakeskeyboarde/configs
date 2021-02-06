@@ -37,6 +37,8 @@ Config files and dependencies for build tools.
 
 ## Common
 
+Config: [.gitignore](.gitignore), [.npmignore](.npmignore)
+
 Dependencies:
 
 ```bash
