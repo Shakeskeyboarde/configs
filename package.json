@@ -1,0 +1,19 @@
+{
+  "name": "configs",
+  "version": "1.0.0",
+  "description": "A library of config files that I commonly reuse as starting points for new projects.",
+  "license": "Unlicense",
+  "private": true,
+  "scripts": {
+    "lint": "eslint . --fix"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.14.2",
+    "@typescript-eslint/parser": "^4.14.2",
+    "eslint": "^7.19.0",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-react": "^7.22.0",
+    "prettier": "^2.2.1"
+  }
+}
