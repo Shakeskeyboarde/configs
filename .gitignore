@@ -115,4 +115,10 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
+# Other build output
+lib
+lib-es6
+lib-commonjs
+
+# Mac folder config
 .DS_Store
