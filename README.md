@@ -63,9 +63,9 @@ Dependencies:
 
 ```bash
 npm i -D \
-  eslint \
   @typescript-eslint/eslint-plugin \
-  @typescript-eslint/parser eslint \
+  @typescript-eslint/parser \
+  eslint \
   eslint-config-prettier \
   eslint-plugin-prettier \
   eslint-plugin-react
@@ -179,7 +179,7 @@ Entries for the `package.json` file `scripts` object.
 {
   "scripts": {
     "clean": "del-cli lib dist coverage",
-    "test": "del-cli coverage && tsc && eslint . && jest --passWithNoTests"
+    "test": "del-cli coverage && tsc && eslint src && jest --passWithNoTests"
   }
 }
 ```
