@@ -1,7 +1,3 @@
-// This config is meant for projects consisting entirely of Typescript. It
-// explicitly ignores JS files, because JS rules do strange things to type
-// definitions.
-
 // Symbol used to add names to config array entries, which would
 // otherwise be difficult to find for modification.
 const ConfigSection = Symbol.for('ConfigSection');
