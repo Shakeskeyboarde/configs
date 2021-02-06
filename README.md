@@ -184,33 +184,34 @@ Entries for the `package.json` file `scripts` object.
 }
 ```
 
+## CLI (Babel)
+
+```json
+{
+  "scripts": {
+    "build": "del-cli lib && tsc && babel src --out-dir lib --extensions .ts,.tsx --source-maps",
+    "prestart": "npm run build",
+    "start": "node lib/index.js"
+  }
+}
+```
+
 ## Library (Babel)
 
 ```json
 {
   "scripts": {
-    "build": "del-cli lib && tsc --noEmit false --emitDeclarationOnly && babel src --out-dir lib --extensions .ts,.tsx --source-maps"
+    "build": "del-cli lib && tsc --noEmit false --emitDeclarationOnly && babel src --out-dir lib --extensions .ts,.tsx"
   }
 }
 ```
 
-## Library (Microbundle for React)
+## Library (Microbundle w/ React)
 
 ```json
 {
   "scripts": {
     "build": "del-cli lib && microbundle --jsx React --jsxFragment React.Fragment"
-  }
-}
-```
-
-## CLI
-
-```json
-{
-  "scripts": {
-    "prestart": "npm run build",
-    "start": "node lib/index.js"
   }
 }
 ```
