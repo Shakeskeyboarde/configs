@@ -37,13 +37,13 @@ Frequently used command strings.
 # Login the GitHub CLI into your account
 gh auth login
 # Create and clone a new GitHub repo
-gh repo create --public <name>
+gh repo create --public "name"
 # Initialize package.json (can be re-run to update)
 npm init
-# Commit all changes including un-staged files.
-git commit -Am "message"
+# Commit all changed files (doesn't include un-tracked)
+git commit -am "message"
 # Rewrite the last commit (requires a force push if already pushed)
-git commit -A --amend
+git commit -a --amend
 # Remove all git ignored files (build output)
 git clean -fdX
 # Hard reset everything back to the last commit
@@ -214,7 +214,7 @@ For Microbundle libraries.
 
 ```json
 {
-  "source": "./src/index.js",
+  "source": "./src/index.ts",
   "module": "./lib/index.module.js",
   "exports": "./lib/index.modern.js",
   "unpkg": "./lib/index.umd.js"
