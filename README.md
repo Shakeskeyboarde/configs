@@ -1,14 +1,176 @@
-A library of commands, configuration, and configuration files that I commonly reuse as starting points for new projects.
+# Commands, Licenses, Tools and Configs.
 
-Some of my own personal preferences are reflected here:
+Everything needed to setup a new Typescript library, service, SPA (single page app), or CLI (command line interface), from scratch. Shorten project bootstrapping time to just a few minutes, without using a [tool chain](https://reactjs.org/docs/create-a-new-react-app.html#recommended-toolchains). This keeps your projects flexible, transparent, and future proof.
 
-- Using Typescript with Babel compilation.
-- Using [Microbundle](https://www.npmjs.com/package/microbundle) (Rollup) to build web libraries.
-- Using CSS-in-JS instead of SASS/SCSS modules.
-- Using [core-js](https://www.npmjs.com/package/core-js) global polyfills.
-- Using a slightly broader than default set of supported browsers.
+### Table of Contents
 
-# Licenses
+- [Setup Checklist](#setup-checklist)
+- [Package](#package)
+- [License](#license)
+- [Configs](#configs)
+- [Dependencies](#dependencies)
+- [Commands](#commands)
+
+### Prerequisites
+
+- [GitHub CLI](https://cli.github.com)
+- [Git CLI](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+- [Node.js](https://nodejs.org/en/download/current/)
+
+### Recommendations
+
+- Use [VSCode](https://code.visualstudio.com/download).
+  - Plugins
+    - [npm](https://marketplace.visualstudio.com/items?itemName=eg2.vscode-npm-script)
+    - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+    - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+    - [Jest Runner](https://marketplace.visualstudio.com/items?itemName=firsttris.vscode-jest-runner)
+    - [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
+    - [Markdown All in One](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one)
+    - [vscode-icons](https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons)
+    - [vscode-styled-components](https://marketplace.visualstudio.com/items?itemName=jpoissonnier.vscode-styled-components)
+- Use NPM v7 instead of Yarn.
+- Use Typescript with Babel compilation and [core-js](https://www.npmjs.com/package/core-js) global polyfills.
+- Use [Microbundle](https://www.npmjs.com/package/microbundle) (Rollup) to build web libraries.
+- Use ESLint (and Prettier) instead of TSLint.
+- Use CSS-in-JS instead of SASS/SCSS modules.
+- Use React instead of Preact.
+
+&nbsp;
+
+## Setup Checklist
+
+1. Create and clone a new GitHub repo.
+   - **Command:** `gh repo create --public "name"`
+2. Create the `package.json` file.
+   - **Command:** `npm init`
+     - If this is an SPA, set "private" to `true`.
+   - Add appropriate [entry points](#entry-points) (eg. "main", "bin", etc.)
+   - Add appropriate [scripts](#scripts) (eg. "test", "build", etc.)
+   - Copy in the matching [license](#license) to the `LICENSE` file.
+3. Copy in common [configs](#configs).
+4. Install dev [dependencies](#dependencies).
+   - Always...
+     - [Scripting](#scripting)
+     - [Prettier](#prettier)
+     - [ESLint](#eslint)
+     - [Babel](#babel)
+     - [Typescript](#typescript)
+     - [Jest](#jest)
+   - Also, if this is an SPA...
+     - [Webpack](#webpack)
+   - Also, if this is a client-side (browser) library...
+     - [Microbundle](#microbundle)
+   - Copy in config files for the above dependencies.
+   - Modify or add any project specific config.
+5. Test the project config.
+   - Create a `src/index.ts` file which just contains `export {};`.
+   - Run each `package.json` script to make sure they work.
+6. Make an "Initial commit" and push it.
+   - `git add . && git commit -m "Initial commit" && git push`
+
+&nbsp;
+
+## Package
+
+Project configuration in your `package.json` file.
+
+### Entry Points
+
+Source and output paths.
+
+#### For libraries
+
+```json
+{
+  "types": "./lib/index.d.ts",
+  "main": "./lib/index.js"
+}
+```
+
+#### For Microbundle libraries
+
+```json
+{
+  "source": "./src/index.ts",
+  "module": "./lib/index.module.js",
+  "exports": "./lib/index.modern.js",
+  "unpkg": "./lib/index.umd.js"
+}
+```
+
+#### For command line interfaces (CLI)
+
+```json
+{
+  "bin": "./lib/index.js"
+}
+```
+
+### Scripts
+
+Test, build, and run commands.
+
+#### Common
+
+```json
+{
+  "scripts": {
+    "clean": "del-cli lib dist coverage",
+    "test": "del-cli coverage && tsc && eslint src && jest --passWithNoTests"
+  }
+}
+```
+
+#### CLI (Babel)
+
+```json
+{
+  "scripts": {
+    "build": "del-cli lib && tsc && babel src --out-dir lib --extensions .ts,.tsx --source-maps",
+    "prestart": "npm run build",
+    "start": "node lib/index.js",
+    "prepack": "npm test && npm run build"
+  }
+}
+```
+
+#### Library (Babel)
+
+```json
+{
+  "scripts": {
+    "build": "del-cli lib && tsc --noEmit false --emitDeclarationOnly && babel src --out-dir lib --extensions .ts,.tsx",
+    "prepack": "npm test && npm run build"
+  }
+}
+```
+
+#### Library (Microbundle)
+
+```json
+{
+  "scripts": {
+    "build": "del-cli lib && microbundle --jsx React --jsxFragment React.Fragment",
+    "prepack": "npm test && npm run build"
+  }
+}
+```
+
+#### Bundle (Webpack)
+
+```json
+{
+  "scripts": {
+    "build": "del-cli dist && webpack --mode=production",
+    "start": "webpack serve"
+  }
+}
+```
+
+&nbsp;
+
+## License
 
 [SPDX license](https://spdx.org/licenses/) values which can be set in a `package.json` file `license` field. Remember to also include the license text in the `LICENSE` file at the repo root. See also [tl;drLegal](https://tldrlegal.com) for simple explanations of license rights and restrictions.
 
@@ -29,49 +191,25 @@ Some of my own personal preferences are reflected here:
   - **Summary:** All rights reserved.
   - **Use:** For closed source.
 
-# Commands
+&nbsp;
 
-Frequently used command strings.
+## Configs
 
-```bash
-# Login the GitHub CLI into your account
-gh auth login
-# Create and clone a new GitHub repo
-gh repo create --public "name"
-# Initialize package.json (can be re-run to update)
-npm init
-# Track all un-tracked files.
-git add .
-# Commit all changed files (doesn't include un-tracked)
-git commit -am "message"
-# Rewrite the last commit (requires a force push if already pushed)
-git commit -a --amend
-# Remove all git ignored files (build output)
-git clean -fdX
-# Hard reset everything back to the last commit
-git clean -fdx
-# Hard reset only tracked files back to the last commit
-git reset --hard
-# Push all local changes to the Git origin remote
-git push
-# Pull all remote changes to from the Git origin
-git pull
-# Pull and auto-resolve all conflicts in favor of the remote
-# (overwrite the local conflict and keep the remote's version).
-git pull -X theirs
-```
+Config files for prerequisite and recommended tools.
 
-# Tools
+- [.gitignore](.gitignore)
+- [.npmignore](.npmignore)
+- [.vscode/settings.json](.vscode/settings.json)
 
-Config files and dependencies for build tools.
+&nbsp;
 
-> Some of the config files are "parameterized" using the `package.json` file [config](https://docs.npmjs.com/cli/v7/configuring-npm/package-json#config) object. This does require that you invoke the tool using an `npm run` or `npm exec` command, which will expose those config values as environment variables.
+## Dependencies
 
-## Common
+Dev dependency install commands and associated config files.
 
-Config: [.gitignore](.gitignore), [.npmignore](.npmignore)
+_Some of the config files are "parameterized" using the `package.json` file [config](https://docs.npmjs.com/cli/v7/configuring-npm/package-json#config) object. This does require that you invoke the tool using an `npm run` or `npm exec` command, which will expose those config values as environment variables._
 
-Dependencies:
+### Scripting
 
 ```bash
 npm i -D \
@@ -79,21 +217,18 @@ npm i -D \
   del-cli
 ```
 
-## Prettier
-
-Config: [.prettierrc.js](.prettierrc.js)
-
-Dependencies:
+### Prettier
 
 ```bash
-npm i -D prettier
+npm i -D \
+  @types/prettier \
+  prettier
 ```
 
-## ESLint
+> **Configs:**
+> - [.prettierrc.js](.prettierrc.js)
 
-Config: [.eslintrc.js](.eslintrc.js)
-
-Dependencies:
+### ESLint
 
 ```bash
 npm i -D \
@@ -105,23 +240,10 @@ npm i -D \
   eslint-plugin-react
 ```
 
-## Babel
+> **Configs:**
+> - [.eslintrc.js](.eslintrc.js)
 
-Config: [babel.config.js](babel.config.js), [.browserslistrc](.browserslistrc)
-
-Parameters (`package.json`):
-
-```json
-{
-  "config": {
-    "babel": {
-      "corejs": "3.8"
-    }
-  }
-}
-```
-
-Dependencies:
+### Babel
 
 ```bash
 npm i -D \
@@ -134,23 +256,32 @@ npm i -D \
   regenerator-runtime
 ```
 
-## Typescript
+> **Configs:**
+> - [babel.config.js](babel.config.js)
+> - [.browserslistrc](.browserslistrc)
+> - package.json
+>   ```json
+>   {
+>     "config": {
+>       "babel": {
+>         "corejs": "3.8"
+>       }
+>     }
+>   }
+>   ```
 
-Config: [tsconfig.json](tsconfig.json)
-
-> The `rootDir` and `outDir` values in a `tsconfig.json` file are relative _to the config file._ If you extend this config (or any config) instead of copying it, you will need to override those values in the final config, or your input/output paths will be buried in your `node_modules` directory.
-
-Dependencies:
+### Typescript
 
 ```bash
 npm i -D typescript
 ```
 
-## Jest
+> **Configs:**
+> - [tsconfig.json](tsconfig.json)
+>   - The `rootDir` and `outDir` values in a `tsconfig.json` file are relative _to the config file._ If you extend this config (or any config) instead of copying it, you will need to override those values in the final config, or your input/output paths will be buried in your `node_modules` directory.
 
-Config: [jest.config.js](jest.config.js)
 
-Dependencies:
+### Jest
 
 ```bash
 npm i -D \
@@ -159,24 +290,10 @@ npm i -D \
   jest
 ```
 
-## Webpack
+> **Configs:**
+> - [jest.config.js](jest.config.js)
 
-Config: [webpack.config.js](webpack.config.js), [public](public)
-
-Parameters (`package.json`):
-
-```json
-{
-  "config": {
-    "webpack": {
-      "publicPath": "/",
-      "devServerPort": 3000
-    }
-  }
-}
-```
-
-Dependencies:
+### Webpack
 
 ```bash
 npm i -D \
@@ -193,101 +310,40 @@ npm i -D \
   webpack-dev-server
 ```
 
-## Microbundle
+> **Configs:**
+> - [public](public)
+> - [webpack.config.js](webpack.config.js)
+> - package.json
+>   ```json
+>   {
+>     "config": {
+>       "webpack": {
+>         "publicPath": "/",
+>         "devServerPort": 3000
+>       }
+>     }
+>   }
+>   ```
 
-Dependencies:
+### Microbundle
 
 ```bash
 npm i -D microbundle
 ```
 
-# Entry Points
+&nbsp;
 
-For libraries.
+## Commands
 
-```json
-{
-  "types": "./lib/index.d.ts",
-  "main": "./lib/index.js"
-}
-```
+Special case commands that are a little uncommon, but super useful.
 
-For Microbundle libraries.
-
-```json
-{
-  "source": "./src/index.ts",
-  "module": "./lib/index.module.js",
-  "exports": "./lib/index.modern.js",
-  "unpkg": "./lib/index.umd.js"
-}
-```
-
-For command line interfaces (CLI).
-
-```json
-{
-  "bin": "./lib/index.js"
-}
-```
-
-# Scripts
-
-Command strings for the `package.json` file `scripts` object.
-
-## Common
-
-```json
-{
-  "scripts": {
-    "clean": "del-cli lib dist coverage",
-    "test": "del-cli coverage && tsc && eslint src && jest --passWithNoTests"
-  }
-}
-```
-
-## CLI (Babel)
-
-```json
-{
-  "scripts": {
-    "build": "del-cli lib && tsc && babel src --out-dir lib --extensions .ts,.tsx --source-maps",
-    "prestart": "npm run build",
-    "start": "node lib/index.js",
-    "prepack": "npm test && npm run build"
-  }
-}
-```
-
-## Library (Babel)
-
-```json
-{
-  "scripts": {
-    "build": "del-cli lib && tsc --noEmit false --emitDeclarationOnly && babel src --out-dir lib --extensions .ts,.tsx",
-    "prepack": "npm test && npm run build"
-  }
-}
-```
-
-## Library (Microbundle w/ React)
-
-```json
-{
-  "scripts": {
-    "build": "del-cli lib && microbundle --jsx React --jsxFragment React.Fragment",
-    "prepack": "npm test && npm run build"
-  }
-}
-```
-
-## Bundle (Webpack)
-
-```json
-{
-  "scripts": {
-    "build": "del-cli dist && webpack --mode=production",
-    "start": "webpack serve"
-  }
-}
+```bash
+# Rewrite the last commit with missed files or additional code changes.
+git add . && git commit --amend --no-edit
+# Remove all git ignored files (build output AND node_modules).
+git clean -fdX
+# Same as the above, AND hard reset changes (AKA re-clone).
+git clean -fdx
+# Pull with conflicts auto-resolved in favor of the remote.
+git pull -X theirs
 ```
