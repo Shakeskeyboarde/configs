@@ -206,6 +206,7 @@ Config files for prerequisite and recommended tools.
 - [.gitignore](.gitignore)
 - [.npmignore](.npmignore)
 - [.vscode/settings.json](.vscode/settings.json)
+- [.vscode/extensions.json](.vscode/extensions.json)
 
 &nbsp;
 
