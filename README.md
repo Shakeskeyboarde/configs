@@ -15,7 +15,7 @@ Everything needed to setup a new Typescript library, service, SPA (single page a
 
 - [GitHub CLI](https://cli.github.com)
 - [Git CLI](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-- [Node.js](https://nodejs.org/en/download/current/)
+- [Node.js](https://nodejs.org/en/download/current/) (v12 or higher)
 
 ### Recommendations
 
@@ -242,6 +242,7 @@ npm i -D \
 
 > **Configs:**
 > - [.eslintrc.js](.eslintrc.js)
+>   - You can change the `parserOptions.ecmaVersion` option to `2021`, and the replace the `env.es2017` option with `env.es2021`, if using Webpack or Microbundle (ie. targeting the browser with `core-js` polyfills, instead of Node.js).
 
 ### Babel
 
@@ -278,6 +279,7 @@ npm i -D typescript
 
 > **Configs:**
 > - [tsconfig.json](tsconfig.json)
+>   - You can change the `target` option to `ESNext` if using Webpack or Microbundle (ie. targeting the browser with `core-js` polyfills, instead of Node.js).
 >   - The `rootDir` and `outDir` values in a `tsconfig.json` file are relative _to the config file._ If you extend this config (or any config) instead of copying it, you will need to override those values in the final config, or your input/output paths will be buried in your `node_modules` directory.
 
 

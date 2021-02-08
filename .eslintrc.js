@@ -24,6 +24,11 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   parserOptions: {
     sourceType: 'module',
+    // Node >= 12
+    //
+    // This can be changed to 2021 if this is a web project which uses core-js
+    // (ie. Webpack or Microbundle).
+    ecmaVersion: 2019,
     ecmaFeatures: {
       jsx: true,
     },
@@ -31,7 +36,13 @@ module.exports = {
   env: {
     'shared-node-browser': true,
     commonjs: true,
-    es2017: true, // Node >= 10
+    // Node >= 12
+    //
+    // Node 12 actually supports es2019, but there isn't an es2019 option.
+    //
+    // This can be replaced with the es2021 environment if this is a web
+    // project which uses core-js (ie. Webpack or Microbundle).
+    es2017: true,
     jest: true,
   },
   rules: {
