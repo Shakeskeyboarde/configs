@@ -1,6 +1,6 @@
 # Commands, Licenses, Tools and Configs.
 
-Everything needed to setup a new Typescript library, service, SPA (single page app), or CLI (command line interface), from scratch. Shorten project bootstrapping time to just a few minutes, without using a [tool chain](https://reactjs.org/docs/create-a-new-react-app.html#recommended-toolchains). This keeps your projects flexible, transparent, and future proof.
+Everything needed to setup a new Typescript library, service, SPA (single page app), or CLI (command line interface), from scratch. Shorten project bootstrapping time to a few minutes, without using a [tool chain](https://reactjs.org/docs/create-a-new-react-app.html#recommended-toolchains). This keeps your projects flexible, transparent, and future proof.
 
 ### Table of Contents
 
@@ -19,16 +19,15 @@ Everything needed to setup a new Typescript library, service, SPA (single page a
 
 ### Recommendations
 
-- Use [VSCode](https://code.visualstudio.com/download).
-  - Plugins
-    - [npm](https://marketplace.visualstudio.com/items?itemName=eg2.vscode-npm-script)
-    - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
-    - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
-    - [Jest Runner](https://marketplace.visualstudio.com/items?itemName=firsttris.vscode-jest-runner)
-    - [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
-    - [Markdown All in One](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one)
-    - [vscode-icons](https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons)
-    - [vscode-styled-components](https://marketplace.visualstudio.com/items?itemName=jpoissonnier.vscode-styled-components)
+- Use [VSCode](https://code.visualstudio.com/download) and the following plugins:
+  - [npm](https://marketplace.visualstudio.com/items?itemName=eg2.vscode-npm-script)
+  - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+  - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+  - [Jest Runner](https://marketplace.visualstudio.com/items?itemName=firsttris.vscode-jest-runner)
+  - [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
+  - [Markdown All in One](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one)
+  - [vscode-icons](https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons)
+  - [vscode-styled-components](https://marketplace.visualstudio.com/items?itemName=jpoissonnier.vscode-styled-components)
 - Use NPM v7 instead of Yarn.
 - Use Typescript with Babel compilation and [core-js](https://www.npmjs.com/package/core-js) global polyfills.
 - Use [Microbundle](https://www.npmjs.com/package/microbundle) (Rollup) to build web libraries.
