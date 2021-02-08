@@ -4,7 +4,6 @@ Everything needed to setup a new Typescript library, CLI (command line interface
 
 ### Table of Contents
 
-- [Terms](#terms)
 - [Checklist](#checklist)
 - [Package](#package)
 - [License](#license)
@@ -36,9 +35,7 @@ Everything needed to setup a new Typescript library, CLI (command line interface
 - Use CSS-in-JS instead of SASS/SCSS modules.
 - Use React instead of Preact.
 
-&nbsp;
-
-## Terms
+### Terms
 
 - **Library** - A project that is published to NPM, to be used as a dependency in another project.
 - **CLI** - A library that can be run as a command line executable.
