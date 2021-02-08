@@ -5,7 +5,7 @@ module.exports = (api) => {
   api.assertVersion(7);
 
   // Source package.json quick config values.
-  const coreJsVersion = process.env['npm_package_config_babel_corejs'] || 3;
+  const coreJsVersion = process.env['npm_package_config_babel_corejs'];
 
   api.cache(() =>
     JSON.stringify({
