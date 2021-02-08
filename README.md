@@ -265,7 +265,7 @@ npm i -D \
 
 - [babel.config.js](babel.config.js)
 - [.browserslistrc](.browserslistrc)
-- package.json
+- package.json _(optional)_
   ```json
   {
     "config": {
@@ -275,6 +275,7 @@ npm i -D \
     }
   }
   ```
+  - Only set the "corejs" option if the project is a web library or an SPA. Node libraries and CLIs should generally not use polyfills, because Node is sufficiently current enough not to need them, and enabling them complicates testing.
 
 ### Typescript
 
@@ -317,7 +318,7 @@ npm i -D \
 
 - [public](public)
 - [webpack.config.js](webpack.config.js)
-- package.json
+- package.json _(optional)_
   ```json
   {
     "config": {
@@ -328,6 +329,7 @@ npm i -D \
     }
   }
   ```
+  - Default config values are shown.
 
 ### Microbundle
 
