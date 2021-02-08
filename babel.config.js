@@ -33,8 +33,8 @@ module.exports = (api) => {
                 proposals: true,
               },
             }
-          : // Just support Node.js LTS versions.
-            { targets: { node: 10 } },
+          : // Just support Node.js v12 or higher.
+            { targets: { node: 12 } },
       ],
     ],
   };
