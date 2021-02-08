@@ -225,8 +225,7 @@ npm i -D \
   prettier
 ```
 
-> **Configs:**
-> - [.prettierrc.js](.prettierrc.js)
+- [.prettierrc.js](.prettierrc.js)
 
 ### ESLint
 
@@ -240,9 +239,8 @@ npm i -D \
   eslint-plugin-react
 ```
 
-> **Configs:**
-> - [.eslintrc.js](.eslintrc.js)
->   - You can change the `parserOptions.ecmaVersion` option to `2021`, and the replace the `env.es2017` option with `env.es2021`, if using Webpack or Microbundle (ie. targeting the browser with `core-js` polyfills, instead of Node.js).
+- [.eslintrc.js](.eslintrc.js)
+  - You can change the `parserOptions.ecmaVersion` option to `2021`, and the replace the `env.es2017` option with `env.es2021`, if using Webpack or Microbundle (ie. targeting the browser with `core-js` polyfills, instead of Node.js).
 
 ### Babel
 
@@ -257,19 +255,18 @@ npm i -D \
   regenerator-runtime
 ```
 
-> **Configs:**
-> - [babel.config.js](babel.config.js)
-> - [.browserslistrc](.browserslistrc)
-> - package.json
->   ```json
->   {
->     "config": {
->       "babel": {
->         "corejs": "3.8"
->       }
->     }
->   }
->   ```
+- [babel.config.js](babel.config.js)
+- [.browserslistrc](.browserslistrc)
+- package.json
+  ```json
+  {
+    "config": {
+      "babel": {
+        "corejs": "3.8"
+      }
+    }
+  }
+  ```
 
 ### Typescript
 
@@ -277,10 +274,9 @@ npm i -D \
 npm i -D typescript
 ```
 
-> **Configs:**
-> - [tsconfig.json](tsconfig.json)
->   - You can change the `target` option to `ESNext` if using Webpack or Microbundle (ie. targeting the browser with `core-js` polyfills, instead of Node.js).
->   - The `rootDir` and `outDir` values in a `tsconfig.json` file are relative _to the config file._ If you extend this config (or any config) instead of copying it, you will need to override those values in the final config, or your input/output paths will be buried in your `node_modules` directory.
+- [tsconfig.json](tsconfig.json)
+  - You can change the `target` option to `ESNext` if using Webpack or Microbundle (ie. targeting the browser with `core-js` polyfills, instead of Node.js).
+  - The `rootDir` and `outDir` values in a `tsconfig.json` file are relative _to the config file._ If you extend this config (or any config) instead of copying it, you will need to override those values in the final config, or your input/output paths will be buried in your `node_modules` directory.
 
 
 ### Jest
@@ -292,8 +288,7 @@ npm i -D \
   jest
 ```
 
-> **Configs:**
-> - [jest.config.js](jest.config.js)
+- [jest.config.js](jest.config.js)
 
 ### Webpack
 
@@ -312,20 +307,19 @@ npm i -D \
   webpack-dev-server
 ```
 
-> **Configs:**
-> - [public](public)
-> - [webpack.config.js](webpack.config.js)
-> - package.json
->   ```json
->   {
->     "config": {
->       "webpack": {
->         "publicPath": "/",
->         "devServerPort": 3000
->       }
->     }
->   }
->   ```
+- [public](public)
+- [webpack.config.js](webpack.config.js)
+- package.json
+  ```json
+  {
+    "config": {
+      "webpack": {
+        "publicPath": "/",
+        "devServerPort": 3000
+      }
+    }
+  }
+  ```
 
 ### Microbundle
 
