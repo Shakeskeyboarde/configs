@@ -37,5 +37,6 @@ module.exports = (api) => {
             { targets: { node: 12 } },
       ],
     ],
+    plugins: ['@babel/proposal-class-properties', '@babel/proposal-object-rest-spread'],
   };
 };

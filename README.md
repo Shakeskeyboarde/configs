@@ -254,6 +254,8 @@ npm i -D \
 npm i -D \
   @babel/cli \
   @babel/core \
+  @babel/plugin-proposal-class-properties \
+  @babel/plugin-proposal-object-rest-spread \
   @babel/preset-env \
   @babel/preset-react \
   @babel/preset-typescript \
