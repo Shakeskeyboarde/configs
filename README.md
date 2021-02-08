@@ -78,7 +78,15 @@ Project configuration in your `package.json` file.
 
 Source and output paths.
 
-#### For libraries
+#### For a CLI or service
+
+```json
+{
+  "bin": "./lib/index.js"
+}
+```
+
+#### For a Node.js library
 
 ```json
 {
@@ -87,7 +95,7 @@ Source and output paths.
 }
 ```
 
-#### For Microbundle libraries
+#### For a browser library (Microbundle)
 
 ```json
 {
@@ -98,19 +106,11 @@ Source and output paths.
 }
 ```
 
-#### For command line interfaces (CLI)
-
-```json
-{
-  "bin": "./lib/index.js"
-}
-```
-
 ### Scripts
 
 Test, build, and run commands.
 
-#### Common
+#### For any project
 
 ```json
 {
@@ -121,7 +121,7 @@ Test, build, and run commands.
 }
 ```
 
-#### CLI (Babel)
+#### For a CLI or service (Babel)
 
 ```json
 {
@@ -134,7 +134,7 @@ Test, build, and run commands.
 }
 ```
 
-#### Library (Babel)
+#### For a Node.js library (Babel)
 
 ```json
 {
@@ -145,7 +145,7 @@ Test, build, and run commands.
 }
 ```
 
-#### Library (Microbundle)
+#### Fore a browser library (Microbundle)
 
 ```json
 {
@@ -156,7 +156,7 @@ Test, build, and run commands.
 }
 ```
 
-#### Bundle (Webpack)
+#### For an SPA (Webpack)
 
 ```json
 {
@@ -335,10 +335,13 @@ Special case commands that are a little uncommon, but super useful.
 ```bash
 # Rewrite the last commit with missed files or additional code changes.
 git add . && git commit --amend --no-edit
+
 # Remove all git ignored files (build output AND node_modules).
 git clean -fdX
+
 # Same as the above, AND hard reset changes (AKA re-clone).
 git clean -fdx
+
 # Pull with conflicts auto-resolved in favor of the remote.
 git pull -X theirs
 ```
