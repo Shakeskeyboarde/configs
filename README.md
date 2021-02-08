@@ -1,10 +1,11 @@
 # Commands, Licenses, Tools and Configs.
 
-Everything needed to setup a new Typescript library, service, SPA (single page app), or CLI (command line interface), from scratch. Shorten project bootstrapping time to a few minutes, without using a [tool chain](https://reactjs.org/docs/create-a-new-react-app.html#recommended-toolchains). This keeps your projects flexible, transparent, and future proof.
+Everything needed to setup a new Typescript library, CLI (command line interface), service, or SPA (single page app), from scratch. Shorten project bootstrapping time to a few minutes, without using a [tool chain](https://reactjs.org/docs/create-a-new-react-app.html#recommended-toolchains). This keeps your projects flexible, transparent, and future proof.
 
 ### Table of Contents
 
-- [Setup Checklist](#setup-checklist)
+- [Terms](#terms)
+- [Checklist](#checklist)
 - [Package](#package)
 - [License](#license)
 - [Configs](#configs)
@@ -37,7 +38,16 @@ Everything needed to setup a new Typescript library, service, SPA (single page a
 
 &nbsp;
 
-## Setup Checklist
+## Terms
+
+- **Library** - A project that is published to NPM, to be used as a dependency in another project.
+- **CLI** - A library that can be run as a command line executable.
+- **Service** - A CLI which starts an HTTP listener when executed, and runs until terminated.
+- **SPA** - A single page application (AKA: UI, web bundle, or web app), which is compiled into a browser compatible bundle and served over HTTP as static content.
+
+&nbsp;
+
+## Checklist
 
 1. Create and clone a new GitHub repo.
    - **Command:** `gh repo create --public "name"`
@@ -86,7 +96,7 @@ Source and output paths.
 }
 ```
 
-#### For a Node.js library
+#### For any library
 
 ```json
 {
@@ -145,7 +155,7 @@ Test, build, and run commands.
 }
 ```
 
-#### Fore a browser library (Microbundle)
+#### For a browser library (Microbundle)
 
 ```json
 {
