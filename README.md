@@ -305,6 +305,7 @@ npm i -D \
 npm i -D \
   babel-loader \
   compression-webpack-plugin \
+  copy-webpack-plugin \
   css-loader \
   file-loader \
   html-webpack-plugin \

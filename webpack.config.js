@@ -1,6 +1,7 @@
 const path = require('path');
 const process = require('process');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
@@ -75,6 +76,18 @@ module.exports = (_env, argv) => {
           description: process.env['npm_package_config_webpack_description'] || 'Built with Webpack',
           'theme-color': process.env['npm_package_config_webpack_color'] || '#ffffff',
         },
+      }),
+      new CopyWebpackPlugin({
+        patterns: [
+          {
+            context: process.cwd(),
+            from: 'public',
+            noErrorOnMissing: true,
+            globOptions: {
+              ignore: ['**/public/index.html', '**/public/favicon.png'],
+            },
+          },
+        ],
       }),
       new CompressionPlugin({ algorithm: 'brotliCompress', filename: '[file].br' }),
       new CompressionPlugin({ algorithm: 'gzip', filename: '[file].gz' }),
