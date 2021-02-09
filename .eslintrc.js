@@ -47,9 +47,8 @@ module.exports = {
   },
   rules: {
     'prettier/prettier': 'warn',
-    'react/react-in-jsx-scope': 'off',
-    'react/no-unescaped-entities': 'off',
   },
+  ignorePatterns: ['node_modules', 'lib', 'dist'],
   overrides: [
     {
       [ConfigSection]: 'override.js',

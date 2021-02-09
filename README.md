@@ -157,7 +157,7 @@ Test, build, and run commands.
 ```json
 {
   "scripts": {
-    "build": "del-cli lib && microbundle --jsx React --jsxFragment React.Fragment",
+    "build": "del-cli lib && microbundle --jsx React.createElement --jsxFragment React.Fragment",
     "prepack": "npm test && npm run build"
   }
 }
@@ -205,8 +205,7 @@ Config files for prerequisite and recommended tools.
 
 - [.gitignore](.gitignore)
 - [.npmignore](.npmignore)
-- [.vscode/settings.json](.vscode/settings.json)
-- [.vscode/extensions.json](.vscode/extensions.json)
+- [.vscode](.vscode)
 
 &nbsp;
 
