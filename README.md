@@ -70,7 +70,7 @@ Everything needed to setup a new Typescript library, CLI (command line interface
    - Copy in config files for the above dependencies.
    - Modify or add any project specific config.
 5. Test the project config.
-   - Create a `src/index.ts` file which just contains `export {};`.
+   - Create a `src/index.ts` (or `src/index.tsx` for Webpack) file which just contains `export {};`.
    - Run each `package.json` script to make sure they work.
 6. Make an "Initial commit" and push it.
    - `git add . && git commit -m "Initial commit" && git push`
@@ -323,6 +323,9 @@ npm i -D \
   {
     "config": {
       "webpack": {
+        "title": "My App",
+        "description": "Built with Webpack",
+        "color": "#ffffff",
         "publicPath": "/",
         "devServerPort": 3000
       }

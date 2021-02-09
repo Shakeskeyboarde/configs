@@ -119,6 +119,7 @@ dist
 lib
 lib-es6
 lib-commonjs
+build-reports
 
 # Mac folder config
 .DS_Store
