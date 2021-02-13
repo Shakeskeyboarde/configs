@@ -5,6 +5,7 @@ module.exports = {
   timers: 'modern',
   restoreMocks: true,
   errorOnDeprecated: true,
+  setupFilesAfterEnv: ['jest.setup.js'],
   collectCoverage: true,
   collectCoverageFrom: ['src/**/*.ts'],
   coverageDirectory: 'coverage',

@@ -20,16 +20,14 @@ module.exports = (api) => {
       [
         '@babel/preset-env',
         coreJsVersion
-          ? // Enable core-js usage injections to support legacy browsers.
-            {
+          ? {
               useBuiltIns: 'usage',
               corejs: {
                 version: coreJsVersion,
                 proposals: true,
               },
             }
-          : // Just support Node.js v12 or higher.
-            { targets: { node: 12 } },
+          : {},
       ],
     ],
     plugins: ['@babel/proposal-class-properties', '@babel/proposal-object-rest-spread'],

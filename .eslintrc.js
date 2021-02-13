@@ -26,8 +26,8 @@ module.exports = {
     sourceType: 'module',
     // Node >= 12
     //
-    // This can be changed to 2021 if this is a web project which uses core-js
-    // (ie. Webpack or Microbundle).
+    // This can be increased if you are targeting a higher Node.js version
+    // or have enabled core-js polyfills.
     ecmaVersion: 2019,
     ecmaFeatures: {
       jsx: true,
@@ -38,10 +38,8 @@ module.exports = {
     commonjs: true,
     // Node >= 12
     //
-    // Node 12 actually supports es2019, but there isn't an es2019 option.
-    //
-    // This can be replaced with the es2021 environment if this is a web
-    // project which uses core-js (ie. Webpack or Microbundle).
+    // This can be replaced with es2020 or es2021 if you are targeting a
+    // higher Node.js version or have enabled core-js polyfills.
     es2017: true,
     jest: true,
   },
