@@ -1,17 +1,16 @@
-const process = require('process');
-
 /** @type {import('@babel/core').ConfigFunction} */
 module.exports = (api) => {
   api.assertVersion(7);
 
-  // Source package.json quick config values.
-  const coreJsVersion = process.env['npm_package_config_babel_corejs'];
+  let coreJsVersion = (() => {
+    try {
+      return require('core-js/package.json').version;
+    } catch {
+      return null;
+    }
+  })();
 
-  api.cache(() =>
-    JSON.stringify({
-      coreJsVersion,
-    }),
-  );
+  api.cache(() => JSON.stringify({ coreJsVersion }));
 
   return {
     presets: [

@@ -71,11 +71,7 @@ module.exports = (_env, argv) => {
         minify: true,
         template: path.resolve('public/index.html'),
         favicon: path.resolve('public/favicon.png'),
-        title: process.env['npm_package_config_webpack_title'] || 'My App',
-        meta: {
-          description: process.env['npm_package_config_webpack_description'] || 'Built with Webpack',
-          'theme-color': process.env['npm_package_config_webpack_color'] || '#ffffff',
-        },
+        title: process.env['npm_package_config_webpack_title'] || 'Untitled',
       }),
       new CopyWebpackPlugin({
         patterns: [

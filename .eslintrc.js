@@ -24,11 +24,6 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   parserOptions: {
     sourceType: 'module',
-    // Node >= 12
-    //
-    // This can be increased if you are targeting a higher Node.js version
-    // or have enabled core-js polyfills.
-    ecmaVersion: 2019,
     ecmaFeatures: {
       jsx: true,
     },
@@ -36,11 +31,7 @@ module.exports = {
   env: {
     'shared-node-browser': true,
     commonjs: true,
-    // Node >= 12
-    //
-    // This can be replaced with es2020 or es2021 if you are targeting a
-    // higher Node.js version or have enabled core-js polyfills.
-    es2017: true,
+    es2021: true,
     jest: true,
   },
   rules: {
@@ -50,7 +41,13 @@ module.exports = {
   overrides: [
     {
       [ConfigSection]: 'override.js',
-      files: ['*.js', '*.jsx'],
+      files: ['*.js'],
+      env: {
+        node: true,
+        commonjs: true,
+        es2021: true,
+        jest: true,
+      },
       rules: {
         // Allow CommonJS requires in plain JS.
         '@typescript-eslint/no-var-requires': 'off',

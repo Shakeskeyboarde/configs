@@ -1,12 +1,9 @@
 {
   "recommendations": [
-    "eg2.vscode-npm-script",
     "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
     "firsttris.vscode-jest-runner",
     "streetsidesoftware.code-spell-checker",
-    "yzhang.markdown-all-in-one",
-    "vscode-icons-team.vscode-icons",
     "jpoissonnier.vscode-styled-components"
   ]
 }

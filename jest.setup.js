@@ -1,5 +1,6 @@
 try {
+  require('regenerator-runtime/runtime');
   require('core-js');
 } catch {
-  // CoreJS not available.
+  // Ignore.
 }

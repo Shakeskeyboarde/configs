@@ -20,10 +20,6 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[markdown]": {
-    "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "markdown.extension.italic.indicator": "_",
-  "markdown.extension.print.absoluteImgPath": false,
-  "markdown.extension.print.includeVscodeStylesheets": false,
-  "markdown.extension.toc.levels": "2..2",
 }

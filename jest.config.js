@@ -2,12 +2,14 @@
 module.exports = {
   roots: ['src'],
   verbose: true,
-  timers: 'modern',
   restoreMocks: true,
   errorOnDeprecated: true,
-  setupFilesAfterEnv: ['jest.setup.js'],
+  moduleNameMapper: {
+    '\\.(css|png|svg|gif|webp|jpe?g|ico|tiff|bmp)$': '<rootDir>/__mocks__/fileMock.js',
+  },
+  setupFilesAfterEnv: ['./jest.setup.js'],
   collectCoverage: true,
-  collectCoverageFrom: ['src/**/*.ts'],
+  collectCoverageFrom: ['src/**/*.{ts,tsx}'],
   coverageDirectory: 'coverage',
   coverageReporters: ['text-summary', 'json-summary', 'html'],
   coverageThreshold: {

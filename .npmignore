@@ -1,6 +1,22 @@
+# Exclude everything at the project root...
 /*
+# ...then re-include specific directories.
 !/lib
 
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Output of 'npm pack'
+*.tgz
+
+# Mac folder config
 .DS_Store
-*.test.*
+
+# Tests
 __*__
+*.test.*
