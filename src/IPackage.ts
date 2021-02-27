@@ -14,6 +14,7 @@ export interface IPackage {
   unpkg?: string;
   bin?: string;
   scripts?: Record<string, string>;
+  engines?: Record<string, string>;
   // Indirect Config
   config?: {
     webpack?: {

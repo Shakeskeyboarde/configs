@@ -4,6 +4,7 @@ import path from 'path';
 import fs from 'fs-extra';
 import execa from 'execa';
 import open from 'open';
+import latestVersion from 'latest-version';
 import { readProjectType } from './readProjectType';
 import { readRepoName } from './readRepoName';
 import { readPackageName } from './readPackageName';
@@ -25,6 +26,7 @@ async function main(): Promise<void> {
   const nodeVersion = await readNodeVersion();
   const useCoreJs = await readUseCoreJs(['lib-web', 'spa'].includes(projectType));
   const webpack = projectType === 'spa' ? await readWebpackConfig(packageName) : null;
+  const nodeTypesVersion = await latestVersion('@types/node', { version: `< ${nodeVersion}` });
 
   const deps: string[] = [
     ...(useCoreJs
@@ -65,7 +67,7 @@ async function main(): Promise<void> {
     '@babel/preset-react',
     '@babel/preset-typescript',
     // Typescript
-    `@types/node@^${nodeVersion}`,
+    `@types/node@^${nodeTypesVersion}`,
     'typescript',
     // Jest
     '@types/jest',
@@ -173,6 +175,9 @@ async function main(): Promise<void> {
             start: 'webpack serve',
           }
         : {}),
+    },
+    engines: {
+      node: `>= ${nodeVersion}`,
     },
     config: {
       ...(webpack ? { webpack } : {}),
