@@ -205,6 +205,7 @@ async function main(): Promise<void> {
   await Promise.all([
     fs.copy(path.resolve(__dirname, '../_gitignore'), '.gitignore'),
     fs.copy(path.resolve(__dirname, '../_npmignore'), '.npmignore'),
+    fs.copy(path.resolve(__dirname, '../_npmrc'), '.npmrc'),
     ...[
       '__mocks__',
       '.vscode',

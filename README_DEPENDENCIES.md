@@ -10,6 +10,7 @@ You should already have Git, NPM, and VSCode installed. But, they still have per
 
 - [.gitignore](.gitignore)
 - [.npmignore](.npmignore)
+- [.npmrc](.npmrc)
 - [.vscode](.vscode)
 
 ## Scripting
@@ -57,7 +58,8 @@ npm i -D \
   @babel/plugin-proposal-object-rest-spread \
   @babel/preset-env \
   @babel/preset-react \
-  @babel/preset-typescript
+  @babel/preset-typescript \
+  babel-plugin-const-enum
 ```
 
 - [babel.config.js](babel.config.js)
