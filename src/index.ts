@@ -179,6 +179,7 @@ async function main(): Promise<void> {
     },
     engines: {
       node: `>= ${nodeVersion}`,
+      npm: '>= 7',
     },
     config: {
       ...(webpack ? { webpack } : {}),
