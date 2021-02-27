@@ -66,6 +66,7 @@ async function main(): Promise<void> {
     '@babel/preset-env',
     '@babel/preset-react',
     '@babel/preset-typescript',
+    'babel-plugin-const-enum',
     // Typescript
     `@types/node@^${nodeTypesVersion}`,
     'typescript',
