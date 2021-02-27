@@ -1,6 +1,6 @@
 {
   "name": "tsnew",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Create a new Typescript project.",
   "license": "Unlicense",
   "author": "Chris Ackerman",
@@ -8,7 +8,9 @@
     "type": "git",
     "url": "https://github.com/Shakeskeyboarde/tsnew.git"
   },
-  "bin": "./lib/index.js",
+  "bin": {
+    "tsnew": "lib/index.js"
+  },
   "scripts": {
     "clean": "del-cli lib dist coverage",
     "test": "del-cli coverage && tsc && eslint src && jest --passWithNoTests",
