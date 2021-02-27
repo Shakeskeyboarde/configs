@@ -203,13 +203,13 @@ async function main(): Promise<void> {
   if (peerDeps.length) {
     await execa('npm', ['add', '--save-peer', ...peerDeps], { all: true });
   }
-  await Promise.all(
-    [
+  await Promise.all([
+    fs.copy(path.resolve(__dirname, '../_gitignore'), '.gitignore'),
+    fs.copy(path.resolve(__dirname, '../_npmignore'), '.npmignore'),
+    ...[
       '__mocks__',
       '.vscode',
       '.eslintrc.js',
-      '.gitignore',
-      '.npmignore',
       'babel.config.js',
       'jest.config.js',
       'jest.setup.js',
@@ -220,7 +220,7 @@ async function main(): Promise<void> {
         overwrite: true,
       }),
     ),
-  );
+  ]);
 
   console.log('4. Create the "LICENSE" file');
   await fs.writeFile(

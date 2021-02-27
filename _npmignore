@@ -1,6 +1,7 @@
 # Exclude everything at the project root...
-/coverage
-/src
+/*
+# ...then re-include specific directories.
+!/lib
 
 # Logs
 logs
@@ -15,3 +16,7 @@ lerna-debug.log*
 
 # Mac folder config
 .DS_Store
+
+# Tests
+__*__
+*.test.*
