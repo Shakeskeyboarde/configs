@@ -1,5 +1,5 @@
 import path from 'path';
-import prompts from 'prompts';
+import prompts, { PromptType } from 'prompts';
 
 export async function readRepoName(): Promise<string | undefined> {
   const { create, repoName } = await prompts(
@@ -11,7 +11,7 @@ export async function readRepoName(): Promise<string | undefined> {
         initial: true,
       },
       {
-        type: (prev: boolean) => (prev ? 'text' : null),
+        type: (prev: boolean) => (prev ? 'text' : null) as PromptType,
         name: 'repoName',
         message: 'Repo name?',
         initial: path.basename(process.cwd()).toLowerCase().replace(/\W+/g, '-'),

@@ -19,6 +19,8 @@ module.exports = (_env, argv) => {
 
   return {
     mode,
+    // HACK: WDS v3 disables auto-reloading when the target is "browserslist", which is the new Webpack v5 default.
+    target: mode === 'development' ? 'web' : 'browserslist',
     entry: path.resolve('src'),
     output: {
       path: path.resolve('dist'),

@@ -12,8 +12,6 @@ module.exports = {
     'plugin:prettier/recommended',
     // Prettier Exclusions (should be last)
     'prettier',
-    'prettier/react',
-    'prettier/@typescript-eslint',
   ],
   plugins: ['react', '@typescript-eslint', 'prettier'],
   settings: {
